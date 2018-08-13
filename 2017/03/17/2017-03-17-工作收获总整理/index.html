@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="工作," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Vue 箭头函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象，所以不要在vue实例属性或毁掉函数中用箭头函数 在vue里如果要操作DOM，用ref。 debounce不会延迟input事件，在使用debounce时应用vm.$watch()相应数据变化。 传入vue.extend()中的选项data和el要使用函数。 【NOTE】名字形式为camelCase的prop用作特性时">
+<meta name="keywords" content="工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工作收获总整理">
+<meta property="og:url" content="http://yoursite.com/2017/03/17/2017-03-17-工作收获总整理/index.html">
+<meta property="og:site_name" content="Erin&#39;s Blog">
+<meta property="og:description" content="Vue 箭头函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象，所以不要在vue实例属性或毁掉函数中用箭头函数 在vue里如果要操作DOM，用ref。 debounce不会延迟input事件，在使用debounce时应用vm.$watch()相应数据变化。 传入vue.extend()中的选项data和el要使用函数。 【NOTE】名字形式为camelCase的prop用作特性时">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-13T21:34:10.245Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="工作收获总整理">
+<meta name="twitter:description" content="Vue 箭头函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象，所以不要在vue实例属性或毁掉函数中用箭头函数 在vue里如果要操作DOM，用ref。 debounce不会延迟input事件，在使用debounce时应用vm.$watch()相应数据变化。 传入vue.extend()中的选项data和el要使用函数。 【NOTE】名字形式为camelCase的prop用作特性时">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/17/2017-03-17-工作收获总整理/"/>
+
+
+
+
+
+  <title>工作收获总整理 | Erin's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Erin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/17/2017-03-17-工作收获总整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Erin Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Erin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">工作收获总整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-17T22:27:46+00:00">
+                2017-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工作笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">工作笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><ul>
+<li>箭头函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象，所以不要在vue实例属性或毁掉函数中用箭头函数</li>
+<li>在vue里如果要操作DOM，用ref。</li>
+<li>debounce不会延迟input事件，在使用debounce时应用vm.$watch()相应数据变化。</li>
+<li>传入vue.extend()中的选项data和el要使用函数。</li>
+<li>【NOTE】名字形式为camelCase的prop用作特性时，需要转为kebab-case。</li>
+<li>Vue事件在冒泡过程中第一次触发回调之后自动停止冒泡，除非回调明确返回true。</li>
+<li>【NOTE】对象/数组的默认值应当由一个函数返回。</li>
+</ul>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><ul>
+<li><p>git diff 查看修改内容。</p>
+</li>
+<li><p>git log 看历史记录。</p>
+</li>
+<li><p>git reset —hard HEAD^ 回退到上一个版本。也可以把暂存区的修改回退到工作区。</p>
+</li>
+<li><p>git reset —hard 版本号</p>
+</li>
+<li><p>git reflow 查看每一次命令。</p>
+</li>
+<li><p>git reset —hard commit_id</p>
+</li>
+<li><p>git checkout —文件名 把文件在工作区的修改全部撤销。</p>
+<p>情况1：文件自修改后还没有被放到暂存区，撤销修改就回到和版本库一模一样的状态。</p>
+<p>情况2： 文件已经添加到暂存区后，又作了修改，撤销修改就回到添加到暂存区后的状态。</p>
+</li>
+<li><p>git stash list</p>
+</li>
+<li><p>git stash apply 恢复，恢复后stash 内容不删除。用 git stash drop 来删除</p>
+</li>
+<li><p>git stash pop 恢复的同时把stash内容也删了。</p>
+</li>
+<li><p><strong>git merge —no-ff</strong> 分支间的关系更清晰，能看出一个分支拉出去后又合并回来，只会提交一个merge的节点。</p>
+</li>
+</ul>
+<h2 id="css"><a href="#css" class="headerlink" title="css"></a>css</h2><p><strong>何时用margin：</strong></p>
+<ul>
+<li>需要在border外侧添加空白时</li>
+<li>空白处不需要背景（色）时</li>
+<li>上下相连的两个盒子之间的空白，需要相互抵消时。【注】margin会相互抵消。</li>
+</ul>
+<p><strong>何时用padding：</strong></p>
+<ul>
+<li>需要在border内侧添加空白时。</li>
+<li>空白处需要背景（色）时。</li>
+<li>上下相连的两个盒子之间的空白，希望等于两者之和时。</li>
+</ul>
+<p><strong>总结</strong></p>
+<p>​    margin用来隔开元素与元素之间的间距，padding用来隔开元素与内容的间隔。margin用于布局分开元素使元素与元素互不相干，padding用于元素与内容之间的间隔，让内容与元素之间有一段呼吸距离。</p>
+<ul>
+<li><p>margin、padding这类属性的参数顺序：上，右，下，左 / 垂直方向，水平方向 / top，水平方向，bottom</p>
+</li>
+<li><p>border-radius参数顺序：上左，上右，下右，下左 / 上左下右， 上右下左 / 上左，上右下左，下右</p>
+</li>
+<li><p>单元格没有外边距。默认情况下，边框被表格的border-spacing属性值间隔，也可以通过设置表格的border-collapse属性值为collapse来完全移除间隔。</p>
+</li>
+<li><p><strong>特指度（specificity）</strong>：特指度表示一个css选择器表达式的重要程度。</p>
+<p>可以通过一个公式来计算出一个数值，数越大，越重要。</p>
+<p>“I-C-E”计算公式：I：id，C：class，E：element</p>
+<p>即，针对一个css选择器表达式，遇到一个id就往特指度数值中加100，遇到一个class就往特指度数值中加10，遇到一个element就往特指度数值中加1</p>
+<p>【NOTE】!important优先级最高，高于上面的一切，选择器最低，低于一切。</p>
+<p>简版规则：</p>
+<pre><code>1. 包含ID的选择器胜过包含class的选择器，包含class的选择器胜过包含元素的选择器。
+2. 不同选择器的特指度比较时，不区分加载的顺序（相同选择器在层叠时，后加载的覆盖前加载的）。
+3. 设置的样式高于继承的样式，不用考虑特指度。
+</code></pre></li>
+<li><p>设置absolute会使得inline元素被“块”化。设置absolute会使得元素已有的float失效。多个悬浮元素后来者居上。</p>
+</li>
+<li><p>通过设置css属性 -webkit-tap-highlight-color: rgba(0, 0, 0, 0);取消掉手机端webkit浏览器 点击按钮或超链接之类的 默认灰色背景色<br>设置css属性 -webkit-user-select:none; 控制用户不可选择文字<br>区域性 overflow: scroll | auto 滚动时使用原生效果：-webkit-overflow-scrolling: touch （ios8+，Android4.0+）</p>
+</li>
+</ul>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ul>
+<li><p>document.write()可用于直接向HTML输出流写内容。但<strong>绝不要使用在文档加载之后，这会覆盖该文档</strong></p>
+</li>
+<li><p><strong>闭包</strong>由两部分组成：函数，以及创建该函数的环境。环境由闭包创建时在作用域中的任何局部变量组成。</p>
+</li>
+<li><p><strong>setTimeout</strong>: 调用setTimeout函数会在一个时间段过去后在队列中添加一个消息。这个时间段作为函数的第二个参数被传入。如果队列中没有其他消息，消息会被马上处理。<strong>但是，如果有其他消息，setTimeout消息必须等待其他消息处理完。</strong>因此第二个参数仅仅表示最少的时间而非确切的时间。</p>
+</li>
+<li><p><strong>reusable function pattern</strong>L</p>
+<p>可以避免new … 的写法</p>
+<p>// a.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span>(<span class="params">settings</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">container</span>) </span>&#123;&#125;</span><br><span class="line">  render.publicFn1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">  render.publicFn2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">  <span class="keyword">return</span> render;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// b.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> a <span class="keyword">from</span> <span class="string">'a.js'</span></span><br><span class="line"><span class="keyword">var</span> ainstance = a(settings)(elem);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>值类型的类型判断用typeof，引用类型的类型判断用instanceof。</p>
+</li>
+<li><p>执行上下文：</p>
+<ol>
+<li>变量、函数表达式（init：变量声明，默认赋值为undefined）</li>
+<li>this（init：赋值）</li>
+<li>函数声明（init：赋值）</li>
+</ol>
+<p>这三种数据的准备情况称之为执行上下文</p>
+<p>如果代码是函数体，在此基础上附加：</p>
+<ol>
+<li>参数</li>
+<li>arguments</li>
+<li>自由变量的取值作用域</li>
+</ol>
+</li>
+<li><p>函数每被调用一次，都会产生一个新的执行上下文环境。</p>
+</li>
+<li><p>函数在定义的时候（不是调用的时候），就已经确定了函数内部自由变量的作用域。</p>
+<p>在函数中this到底去何值，是在函数真正被调用执行的时候确定的，函数定义的时候确定不了。</p>
+</li>
+<li><p>构造函数的函数名第一个字母大写。（构造函数就是用来new对象的函数）</p>
+</li>
+<li><p><strong>this</strong></p>
+<ul>
+<li>如果函数作为构造函数用，那么其中的this就代表它即将new出来的对象。</li>
+<li>如果函数作为对象的一个属性时，并且作为对象的一个属性被调用时，函数中的this指向该对象。【NOTE】如果fn函数不作为obj的一个属性被调用，如fn函数被赋值到了另一个变量中，那么this的值就是window。</li>
+<li>当一个函数被call和apply调用时，this的值就取传入的对象的值。</li>
+<li>在全局环境下，this永远是window。</li>
+<li>普通函数在调用时，其中的this也都是window。</li>
+<li>不仅仅是构造函数的prototype，即便是在整个原型链中，this代表的也都是当前对象的值。</li>
+</ul>
+<p>总结：this指向调用该函数的对象。</p>
+</li>
+<li><p>setAttribute()的两个参数，都必须是字符串。即对特性attribute只能赋值字符串，而对属性property就可以赋任何类型的值。</p>
+</li>
+<li><p>appendChild(), insertBefore()是移动element节点</p>
+</li>
+<li><p>用promise的时候用catch，不要用err hook。这是因为catch可以捕捉到promise中包括hook中的所有异常。</p>
+</li>
+<li><p>需要做字数限制时，汉字作为非直接输入的字符，在输入时监听keydown事件和input事件都会直接触发判断字数逻辑，会截断正在输入的文字。解决方法是监听<strong>compositionend</strong>（当直接的文字输入时触发），这样当没选中中文时不会进行字数判断。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#input'</span>).on(<span class="string">'compositionend'</span>, function(e) &#123;</span><br><span class="line">  var len = $(<span class="keyword">this</span>).val().length;</span><br><span class="line">  <span class="keyword">if</span> (len &gt; <span class="number">16</span>) &#123;</span><br><span class="line">    <span class="comment">// 提示超过16字</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h2><ul>
+<li>模块加载器的顺序需按照基本—&gt;特殊的顺序使用，否则会报错。(从右往左读)</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工作/" rel="tag"># 工作</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/17/2017-03-17-vue2.0升级笔记/" rel="prev" title="vue2.0升级笔记">
+                vue2.0升级笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Erin Ma</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue"><span class="nav-number">1.</span> <span class="nav-text">Vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git"><span class="nav-number">2.</span> <span class="nav-text">git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css"><span class="nav-number">3.</span> <span class="nav-text">css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">4.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Webpack"><span class="nav-number">5.</span> <span class="nav-text">Webpack</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Erin Ma</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

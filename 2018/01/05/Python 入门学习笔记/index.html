@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Python 入门学习笔记一、变量和数据类型整数，浮点数，字符串，布尔值，空值（None）布尔值可以用 and, or 和 not 运算print语句print 字符串可以用”,”连接起来，中间会输出一个空格可用+拼接字符串，中间不会有空格变量 变量名必须是大小写英文、数字和下划线的组合，且不能用数字开头变量在计算机内存中的表示：当我们写 a = ‘ABC’ 时，Python解释器干了两件事">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python入门学习笔记">
+<meta property="og:url" content="http://yoursite.com/2018/01/05/Python 入门学习笔记/index.html">
+<meta property="og:site_name" content="Erin&#39;s Blog">
+<meta property="og:description" content="Python 入门学习笔记一、变量和数据类型整数，浮点数，字符串，布尔值，空值（None）布尔值可以用 and, or 和 not 运算print语句print 字符串可以用”,”连接起来，中间会输出一个空格可用+拼接字符串，中间不会有空格变量 变量名必须是大小写英文、数字和下划线的组合，且不能用数字开头变量在计算机内存中的表示：当我们写 a = ‘ABC’ 时，Python解释器干了两件事">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-13T21:42:21.495Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python入门学习笔记">
+<meta name="twitter:description" content="Python 入门学习笔记一、变量和数据类型整数，浮点数，字符串，布尔值，空值（None）布尔值可以用 and, or 和 not 运算print语句print 字符串可以用”,”连接起来，中间会输出一个空格可用+拼接字符串，中间不会有空格变量 变量名必须是大小写英文、数字和下划线的组合，且不能用数字开头变量在计算机内存中的表示：当我们写 a = ‘ABC’ 时，Python解释器干了两件事">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/05/Python 入门学习笔记/"/>
+
+
+
+
+
+  <title>Python入门学习笔记 | Erin's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Erin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/Python 入门学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Erin Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Erin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python入门学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T22:27:46+00:00">
+                2018-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="exporter-version" content="Evernote Mac 7.1.1 (456642)"><meta name="keywords" content="python"><meta name="author" content="mhy555"><meta name="created" content="2018-01-01 22:03:57 +0000"><meta name="source" content="desktop.mac"><meta name="updated" content="2018-01-05 11:52:09 +0000"><title>Python 入门学习笔记</title></head><body><div>一、变量和数据类型</div><div><ol start="1"><li>整数，浮点数，字符串，布尔值，空值（None）</li></ol></div><div><ul><ul><li>布尔值可以用 and, or 和 not 运算</li></ul></ul></div><div><ol start="2"><li>print语句</li></ol></div><div><ul><ul><li>print 字符串可以用”,”连接起来，中间会输出一个空格</li><li>可用+拼接字符串，中间不会有空格</li></ul></ul></div><div><ol start="3"><li>变量</li></ol></div><ul><ul><li> 变量名必须是大小写英文、数字和下划线的组合，且不能用数字开头</li><li>变量在计算机内存中的表示：当我们写 a = ‘ABC’ 时，Python解释器干了两件事情：1. 在内存中创建了一个 ’ABC’ 的字符串 2. 在内存中创建了一个名为a的变量，并把它指向 ’ABC’</li></ul></ul><ol start="4"><li>字符串</li></ol><ul><ul><li>字符串既包含’又包含”的时候需要用到转义</li></ul></ul><ol start="5"><li>raw 字符串与多行字符串</li></ol><ul><ul><li>在字符串前加前缀 r 就表示这是一个raw字符串，里面的字符不需要转义</li><li>表示多行字符串可用’’’......’’'</li></ul></ul><ol start="6"><li>Unicode 字符串</li></ol><ul><ul><li>在字符串前加前缀 u 来表示一个Unicode字符串</li><li>如果中文字符串在 Python 环境下遇到 UnicodeDecodeError，这是因为.py文件保存的格式有问题。可以再第一行添加注释</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-size: 12px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);"><div><span style="font-size: 12px; color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;"># -*- coding: utf-8 -*-</span></div></div><div>                     目的是告诉Python解释器，用UTF-8编码读取源代码。</div><div><ol start="7"><li>整数与浮点数</li></ol><div><ul><ul><li>整数运算结果仍是整数，浮点数运算结果仍然是浮点数，整数和浮点数混合运算的结果是浮点数</li></ul></ul><div><ol start="8"><li>布尔类型</li></ol><div><ul><ul><li>True 和 False</li><li>0，空字符串’’，和None都是False</li></ul></ul><div>二、list 和 tuple</div></div></div></div></div><div><ol start="1"><li>list</li></ol><div><ul><ul><li>list是有序集合</li><li>[1, 2, 3]</li><li>empty_list = []</li><li>按索引访问，越界会报indexError</li><li>访问倒数第几可用负几表示索引</li><li>添加新元素用append()添加在最后，insert(index, value)添加在任何地方</li><li>删除元素用pop()删除最后一个元素，用pop(index)删除任意元素</li><li>替换元素直接将索引指向的值赋新的值</li></ul></ul><div><ol start="2"><li>tuple</li></ol><div><ul><ul><li>tuple创建了就不可以修改</li><li>(1, 2, 3)</li><li>但是tuple中如果有list，可以修改list中的元素，因为tuple只是引用不能修改，可以修改引用指向的值</li><li>访问元素和list一样</li><li>创建单元素tuple用(1,)在后面跟逗号的方式表示这是一个单元素tuple</li></ul></ul></div></div></div></div><div>三、条件判断和循环</div><div><ol start="1"><li>if</li></ol><div><ul><ul><li>Python使用缩进规则，具有相同缩进的代码被视为代码块。缩进须严格按照Python的习惯写法：4个空格。</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div>if ... :</div><div><span>    <span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">...</span></span></div><div>elif <span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">...</span><font face="Monaco">:</font></div><div><font face="Monaco"><span>    <span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">...</span></span><br></font></div><div><font face="Monaco"><span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">else:</span></span></font></div><div><font face="Monaco"><span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span>    <span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">...</span></span></span></span></font></div><div><span><br></span></div></div></div></div><div><ol start="2"><li>for</li></ol><div><ul><ul><li>遍历list或tuple</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div>for name in L:</div><div><span>    ...</span><br></div></div></div></div><div><ol start="3"><li>while</li></ol><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div>while ...:</div><div><span>    ...</span></div><div><span><span>    if ...:</span></span></div><div><span><span><span>    <span>    break</span></span><br></span></span></div><div><span><span><span><span><span>    if ...:</span><br></span></span></span></span></div><div><span><span><span><span><span><span>    <span>    continue</span></span><br></span></span></span></span></span></div></div>四、dict和set类型</div><div><ol start="1"><li>dict</li></ol><div><ul><ul><li>存储对应关系的键值对</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div>d = {</div><div><span>    ‘Adam’: 95,</span><br></div><div><span><span>    ‘Lisa’: 85,</span><br></span></div><div><span><span><span>    ‘Bart’: 59</span><br></span></span></div><div><span><span><span>}</span></span></span></div></div></div></div><div><ul><ul><li>len()函数可以计算任意集合的大小</li><li>通过key访问dict的value，只要key存在，dict就返回对应的value。如果key不存在会直接报错。对此有两种解决方法：1. 先判断一下key是否存在（if ‘Paul’ in d:）2. 使用dict的get方法（d.get(‘Paul’)）如不存在则返回None</li><li>dict有三大特点：1. 查找速度快，无论dict有10个元素还是10万个元素，查找速度都一样，但是dict占用内存大，还会浪费很多内容。dict是按key查找，所以key不能重复 2. dict存储的键值对是没有顺序的，所以打印的顺序不一定是创建时的顺序，而且不同机器打印的顺序可能不同。 3. 作为key的元素必须不可变，Python的基本类型如字符串、整数、浮点数都是不可变的，都可以作为key。但是list是可变的，不能作为key。</li><li>要往dict里添加新的键值对可以直接用赋值语句添加（d[‘Paul’] = 72），如果key已经存在，赋值会用新的value替换掉原来的value。</li><li>遍历dict和遍历list一样都可用for循环遍历</li></ul></ul></div><div><ol start="2"><li>set</li></ol><div><ul><ul><li>set的元素没有重复，而且是无序的。</li><li>创建set的方式是调用set()并传入一个list，list的元素将作为set的元素。</li><li>如果传入包含重复元素的list，set会自动去掉重复的元素。</li><li>可用in操作符来判断set中是否包含某元素。（’Bart’ in s）</li><li>set有三大特点：1. set不存储value，因此判断一个元素是否在set中速度很快 2. set存储的元素和dict的key类似，必须是不变对象 3. set存储的元素也是没有顺序的</li><li>添加元素用add()方法，如果添加的元素已经存在于set中，add()不会报错，只是不会加进去了。</li><li>删除元素用remove()方法，如果删除的元素不在set中，remove()会报错。</li></ul></ul><div>五、函数</div></div></div><div><ol start="1"><li>内置函数</li></ol><div><ul><ul><li>从Python官方网站文档里可以查到内置函数的信息（<div><a href="http://docs.python.org/2/library/functions.html#abs" target="_blank" rel="noopener">http://docs.python.org/2/library/functions.html#abs</a></div>），或者再交互式命令行通过help(函数名)查看函数的帮助信息。</li><li>zip()函数可以把两个list变成一个list：</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">&gt;&gt;&gt; zip([10, 20, 30], ['A', 'B', 'C'])</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">[(10, 'A'), (20, 'B'), (30, 'C')]</span></div></div></div><div><ol start="2"><li>编写函数</li></ol><div><ul><ul><li>定义一个函数用def语句，依次写出函数名、括号、括号中的参数和冒号，然后在缩进块中编写函数体，函数的返回值用return语句返回。</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="color: rgb(0, 0, 205); font-family: Monaco; font-size: 12px;">def</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> my_abs(x)</span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">:</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">    </span><span style="color: rgb(0, 128, 128); font-family: Monaco; font-size: 12px;">if</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> x &gt;= 0</span><span style="color: rgb(0, 128, 128); font-family: Monaco; font-size: 12px;">:</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">        return x</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">   </span><span style="color: rgb(0, 128, 128); font-family: Monaco; font-size: 12px;"> else:</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">        return -x</span></div></div></div></div></div></div></div><div><ul><ul><li>如果没有return语句，函数执行完毕后也会返回结果，结果为None。</li></ul></ul><div><ol start="3"><li>返回多值</li></ol><div><ul><ul><li>可用tuple返回多值，在语法上，返回一个tuple可以省略括号，多个变量可以同时接收一个tuple，按位置赋给对应的值。</li></ul></ul><div><ol start="4"><li>递归函数</li></ol><div><ul><ul><li>在函数内部可以调用其他函数，也可以在函数内部调用自身。</li><li>使用递归函数需要注意防止栈溢出。在计算机中，函数调用是通过栈实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，栈就会减一层栈帧。由于栈的大小不是无限的，所以递归调用的次数过多会导致栈溢出。</li></ul></ul><div><ol start="5"><li>默认参数</li></ol><div><ul><ul><li>定义函数的时候可以有默认参数，函数的默认参数的作用是简化调用。直接在写参数的时候给参数赋值就好。</li></ul></ul><div><ol start="6"><li>可变参数</li></ol><div><ul><ul><li>如果想让一个函数能接受任意个参数，可以定义一个可变参数。</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div>def fn(*args):</div><div><span>    print args</span><br></div></div></div></div></div></div></div></div></div></div></div><div><ul><ul><li>Python解释器会把传入的一组参数组装成一个tuple传递给可变参数，因此在函数内部可以直接把变量args看成一个tuple。</li></ul></ul><div>六、切片</div></div><div><ol start="1"><li>对list进行切片</li></ol><div><ul><ul><li>切片是从list中去几个元素出来</li><li>从零开始取可写成L[:3]，左闭右开，从零开始取到索引3位置，但不包括索引3.</li><li>从某个索引开始，L[1,3]</li><li>从头取到尾，L[:]</li><li>切片操作还可指定第三个参数，表示每N个取一个。如L[::2]表示每两个元素取出一个来，也就是隔一个取一个。</li><li>list 和 tuple 的操作完全相同，只是 tuple 的切片结果也是tuple。</li><li>也可用倒数索引进行切片</li></ul></ul><ol><li>对字符串切片</li></ol><div><ul><ul><li>字符串切片结果仍是字符串。’ABCDEF’[:3] == ‘ABC’</li></ul></ul><div><br></div></div></div></div><div>七、迭代</div><div><ol start="1"><li>迭代list</li></ol></div><div><ul><ul><li>Python的for循环不仅可以用在list或tuple上，还可以作用在其他任何可迭代对象上。</li><li>迭代操作就是对于一个集合，无论该集合有序还是无序，用for循环总是可以依次取出集合的每一个元素。</li><li>Python中，迭代永远是取出元素本身，而非元素的索引。想要在for循环中拿到索引，可以用enumerate()函数。</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">&gt;&gt;&gt; L = ['Adam', 'Lisa', 'Bart', 'Paul']</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">&gt;&gt;&gt; </span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">for</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> index, name </span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">in</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> enumerate(L)</span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">:</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">...     print index, '-', name</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">... </span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">0 - Adam</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">1 - Lisa</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">2 - Bart</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">3 - Paul</span></div></div></div></div><div><ul><ul><li>实际上，enumerate()函数把 [‘Adam’, ‘Lisa’, ‘Bart’, ‘Paul’] 变成了类似：[(0, ‘Adam’), (1, ‘Lisa), (2, ‘Bart’), (3, ‘Paul’)]，因此迭代的每一个元素实际上是一个tuple</li></ul></ul><div><ol start="2"><li>迭代dict</li></ol><div><ul><ul><li>for循环可以迭代dict，每次拿到dict的一个key，但如果希望迭代dict对象的value，可以用values()方法，这个方法把dict转换成一个包含所有value的list。</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">d = { 'Adam': 95, 'Lisa': 85, 'Bart': 59 }</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">print d.values()</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"># [85, 95, 59]</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">for</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> v </span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">in</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="line-height: 20.8px; font-family: sans-serif, Arial, Verdana, &quot;Trebuchet MS&quot;; font-size: 12px; color: rgb(51, 51, 51);">d.values()</span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">:</span></span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: sans-serif, Arial, Verdana, &quot;Trebuchet MS&quot;; line-height: 1.6em; font-size: 12px; color: rgb(51, 51, 51);">    print v</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: sans-serif, Arial, Verdana, &quot;Trebuchet MS&quot;; line-height: 1.6em; font-size: 12px; color: rgb(51, 51, 51);"># 85</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: sans-serif, Arial, Verdana, &quot;Trebuchet MS&quot;; line-height: 1.6em; font-size: 12px; color: rgb(51, 51, 51);"># 95</span></div></div></div><ul><ul><li>dict还有一个itervalues()方法，用这个方法替代values()方法，迭代效果完全一样。（py3中已取消此方法）</li><li>两个方法的不同之处：1. values()方法实际上把一个dict转换成了包含value的list，而intervals()方法不会转换，它会在迭代过程中依次从dict中取出value，所以itervalues()方法比values()方法节省了生成list所需的内存。 2. 打印itervalues()发现它返回一个&lt;dictionary-valueiterator&gt;对象，这说明在Python中，for循环可作用的迭代对象远不止list，tuple，str，unicode，dict等，任何可迭代对象都可以作用于for循环。</li><li>在一个for循环中同时迭代key和value可用items()方法。</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">&gt;&gt;&gt; d = { 'Adam': 95, 'Lisa': 85, 'Bart': 59 }</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">&gt;&gt;&gt; print d.items()</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">[('Lisa', 85), ('Adam', 95), ('Bart', 59)]</span></div></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><br></span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">&gt;&gt;&gt; for key, value in d.items():</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">...     print key, ':', value</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">... </span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">Lisa : 85</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">Adam : 95</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">Bart : 59</span></div><br></span></div></div></div></div></div><div><br></div><div>八、列表生成式</div><div><ol start="1"><li>生成列表</li></ol><div><ul><ul><li>循环生成列表可以写成[x * x for x in range(1,11)]，来生成1-10每个数的平方的列表</li></ul></ul><div><ol start="2"><li>复杂表达式</li></ol><div><ul><ul><li>使用for循环的迭代还可以迭代dict。</li><li>可以通过一个复杂的列表生成式把dict变成一个HTML表格，字符串可以通过%进行格式化，用指定的参数替代%s。字符串的join()方法可以把一个list拼接成一个字符串。</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">tds = ['&lt;tr&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;' </span><span style="color: rgb(0, 128, 0); font-family: Monaco; font-size: 12px;">%</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> (name, score) </span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">for</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> name, score </span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">in</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> d.iteritems()]</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">print '&lt;table&gt;'</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">print '&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Score&lt;/th&gt;&lt;tr&gt;'</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">print '\n'.join(tds)</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">print '&lt;/table&gt;'</span></div></div></div></div></div></div></div><div><ol start="3"><li>条件过滤</li></ol><div><ul><ul><li>列表生成式的for循环后面还可以加上if判断</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">&gt;&gt;&gt; [x * x </span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">for</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> x </span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">in</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> range(1, 11) </span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">if</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> x % 2 == 0]</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">[4, 16, 36, 64, 100]</span></div></div></div></div></div><div><ol start="4"><li>多层表达式</li></ol><div><ul><ul><li>在列表生成式中也可以用多层for循环来生成列表。</li></ul></ul><div style="box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);-en-codeblock:true;"><div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">&gt;&gt;&gt; [m + n </span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">for</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> m </span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">in</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> 'ABC' </span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">for</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> n </span><span style="color: rgb(0, 0, 255); font-family: Monaco; font-size: 12px;">in</span><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"> '123']</span></div><div style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);"><span style="font-family: Monaco; font-size: 12px; color: rgb(51, 51, 51);">['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3']</span></div></div></div></div></div><div><br></div></body></html>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/23/2017-03-23-实用方法整理/" rel="next" title="实用方法整理">
+                <i class="fa fa-chevron-left"></i> 实用方法整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/15/Python 进阶学习笔记/" rel="prev" title="Python进阶学习笔记">
+                Python进阶学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Erin Ma</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Erin Ma</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
